@@ -82,7 +82,7 @@ function SupportedDapps({
     <>
       <Box pb="0.5rem">
         <Button size="sm" onClick={openSafeAapps}>
-          Supported dapps
+          Select dapp
         </Button>
       </Box>
 
