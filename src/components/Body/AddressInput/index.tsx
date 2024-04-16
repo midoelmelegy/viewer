@@ -46,11 +46,11 @@ function AddressInput({
 
   return (
     <FormControl>
-      <FormLabel>Enter Address or ENS to view</FormLabel>
+      <FormLabel>Enter Address to view</FormLabel>
       <HStack>
         <InputGroup>
           <Input
-            placeholder="vitalik.eth"
+            placeholder="0x"
             autoComplete="off"
             value={showAddress}
             onChange={(e) => {

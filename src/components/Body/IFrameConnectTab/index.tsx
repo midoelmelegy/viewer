@@ -62,11 +62,12 @@ function IFrameConnectTab({
             <Input
               pr="3.5rem"
               bg={"brand.lightBlack"}
-              placeholder="https://app.uniswap.org/"
+              placeholder="https://pancakeswap.finance/prediction?token=BNB&chain=bsc"
               aria-label="dapp-url"
               autoComplete="off"
-              value={inputAppUrl}
-              onChange={(e) => setInputAppUrl(e.target.value)}
+              value="https://pancakeswap.finance/prediction?token=BNB&chain=bsc" // {inputAppUrl}
+              disabled // Make the input disabled
+              //onChange={(e) => setInputAppUrl(e.target.value)}
             />
             {inputAppUrl && (
               <InputRightElement px="1rem" mr="0.5rem">

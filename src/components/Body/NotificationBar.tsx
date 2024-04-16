@@ -46,7 +46,7 @@ function NotificationBar() {
       <Center w="100%">
         <Text>
           <span style={{ fontSize: "1.2rem" }}>🔮✨</span>{" "}
-          <span style={{ fontWeight: "bold" }}>View your live rounds on PCS</span>
+          <span style={{ fontWeight: "bold" }}>Live on PCS</span>
         </Text>
       </Center>
       <CloseButton
