@@ -62,7 +62,7 @@ function IFrameConnectTab({
             <Input
               pr="3.5rem"
               bg={"brand.lightBlack"}
-              placeholder="https://pancakeswap.finance/prediction?token=BNB&chain=bsc"
+              placeholder="https://app.uniswap.org/"
               aria-label="dapp-url"
               autoComplete="off"
               value={inputAppUrl}
@@ -113,7 +113,7 @@ function IFrameConnectTab({
       >
         {appUrl && (
           <Box
-            as="embed"
+            as="iframe"
             w={{
               base: "22rem",
               sm: "45rem",
