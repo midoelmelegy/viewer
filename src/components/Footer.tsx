@@ -100,7 +100,7 @@ function Footer() {
           rounded="lg"
         >
           <Stack direction={{ base: "column", md: "row" }}>
-            <Center>Want to own the BOT?</Center>
+            <Center>Own the BOT?</Center>
             <HStack>
               {process.env.REACT_APP_GITCOIN_GRANTS_ACTIVE === "true" ? (
                 <>
@@ -189,7 +189,7 @@ function Footer() {
                               }}
                               isDisabled={!donateValue || chain?.unsupported}
                             >
-                              Donate
+                              Purchase
                             </Button>
                           </Center>
                         </Container>
@@ -203,15 +203,15 @@ function Footer() {
         </Alert>
         <Heading size="md">
           Built by:{" "}
-          <Social icon={faTwitter} link="https://twitter.com/apoorvlathey" />
-          <Link href="https://twitter.com/apoorvlathey" isExternal>
+          <Social icon={faTwitter} link="https://www.cryptosky.org" />
+          <Link href="https://www.cryptosky.org" isExternal>
             <Text decoration="underline" display="inline">
-              @apoorvlathey
+              CryptoSky
             </Text>{" "}
             <ExternalLinkIcon />
           </Link>
         </Heading>
-        <Center pt="1">
+        {/*<Center pt="1">
           <Link
             href={"https://discord.gg/4VTnuVzfmm"}
             color="twitter.200"
@@ -219,7 +219,7 @@ function Footer() {
           >
             <FontAwesomeIcon icon={faDiscord} size="2x" />
           </Link>
-        </Center>
+            </Center>*/}
       </VStack>
       <Spacer flex="1" />
     </Flex>

@@ -13,26 +13,26 @@ function BrowserExtensionTab() {
     <Center flexDir={"column"} mt="3">
       <Box w="full" fontWeight={"semibold"} fontSize={"xl"}>
         <Text>
-          ⭐ Download the browser extension from:{" "}
+          🔮 Track PNL with WC or PCS:{" "}
           <chakra.a
             color="blue.200"
-            href="https://chrome.google.com/webstore/detail/impersonator/hgihfkmoibhccfdohjdbklmmcknjjmgl"
+            href="https://pancakeswap.finance/prediction?token=BNB&chain=bsc"
             target={"_blank"}
             rel="noopener noreferrer"
           >
-            Chrome Web Store
+            Pancakeswap Dashboard
           </chakra.a>
         </Text>
       </Box>
       <HStack mt="2" w="full" fontSize={"lg"}>
-        <Text>Read more:</Text>
+        <Text>View Bot:</Text>
         <Link
           color="cyan.200"
           fontWeight={"semibold"}
-          href="https://twitter.com/apoorvlathey/status/1577624123177508864"
+          href="https://www.cryptosky.org/"
           isExternal
         >
-          Launch Tweet
+          Pridict Bot
         </Link>
       </HStack>
       <Image mt="2" src="/extension.png" />
