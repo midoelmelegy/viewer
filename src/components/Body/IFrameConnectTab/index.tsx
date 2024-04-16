@@ -67,7 +67,7 @@ function IFrameConnectTab({
               autoComplete="off"
               value="https://pancakeswap.finance/prediction?token=BNB&chain=bsc" // {inputAppUrl}
               disabled // Make the input disabled
-              //onChange={(e) => setInputAppUrl(e.target.value)}
+              onChange={(e) => setInputAppUrl(e.target.value)}
             />
             {inputAppUrl && (
               <InputRightElement px="1rem" mr="0.5rem">

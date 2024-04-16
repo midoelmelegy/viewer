@@ -13,7 +13,7 @@ function BrowserExtensionTab() {
     <Center flexDir={"column"} mt="3">
       <Box w="full" fontWeight={"semibold"} fontSize={"xl"}>
         <Text>
-          🔮 Track PNL with WC or PCS:{" "}
+          🔮 Track PNL on:{" "}
           <chakra.a
             color="blue.200"
             href="https://pancakeswap.finance/prediction?token=BNB&chain=bsc"
