@@ -20,13 +20,13 @@ import { SafeDappInfo } from "../../../../types";
 
 interface SupportedDappsParams {
   networkId: number;
-  initEmbed: (_inputAppUrl?: string | undefined) => Promise<void>;
+  initIFrame: (_inputAppUrl?: string | undefined) => Promise<void>;
   setInputAppUrl: (value: string | undefined) => void;
 }
 
 function SupportedDapps({
   networkId,
-  initEmbed,
+  initIFrame,
   setInputAppUrl,
 }: SupportedDappsParams) {
   const {
@@ -128,7 +128,7 @@ function SupportedDapps({
                     filteredSafeDapps.map((dapp, i) => (
                       <DappTile
                         key={i}
-                        initEmbed={initEmbed}
+                        initIFrame={initIFrame}
                         setInputAppUrl={setInputAppUrl}
                         closeSafeApps={closeSafeApps}
                         dapp={dapp}

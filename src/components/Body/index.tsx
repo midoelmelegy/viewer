@@ -24,7 +24,7 @@ import { SelectedNetworkOption, TxnDataType } from "../../types";
 import NetworkInput from "./NetworkInput";
 import TabsSelect from "./TabsSelect";
 import WalletConnectTab from "./WalletConnectTab";
-import EmbedConnectTab from "./EmbedConnectTab";
+import IFrameConnectTab from "./IFrameConnectTab";
 import BrowserExtensionTab from "./BrowserExtensionTab";
 import TransactionRequests from "./TransactionRequests";
 import NotificationBar from "./NotificationBar";
@@ -94,11 +94,11 @@ function Body() {
   const toast = useToast();
 
   const {
-    setAddress: setEmbedAddress,
+    setAddress: setIFrameAddress,
     appUrl,
     setAppUrl,
     setRpcUrl,
-    embedRef,
+    iframeRef,
     latestTransaction,
   } = useSafeInject();
 
@@ -122,12 +122,12 @@ function Body() {
   const [loading, setLoading] = useState(false);
 
   const [selectedTabIndex, setSelectedTabIndex] = useState(urlFromURL ? 1 : 0);
-  const [isEmbedLoading, setIsEmbedLoading] = useState(false);
+  const [isIFrameLoading, setIsIFrameLoading] = useState(false);
 
   const [inputAppUrl, setInputAppUrl] = useState<string | undefined>(
     urlFromURL ?? urlFromCache ?? undefined
   );
-  const [embedKey, setIframeKey] = useState(0); // hacky way to reload embed when key changes
+  const [iframeKey, setIframeKey] = useState(0); // hacky way to reload iframe when key changes
 
   const [tenderlyForkId, setTenderlyForkId] = useState("");
   const [sendTxnData, setSendTxnData] = useState<TxnDataType[]>([]);
@@ -158,7 +158,7 @@ function Body() {
 
   useEffect(() => {
     if (provider && addressFromURL && urlFromURL) {
-      initEmbed();
+      initIFrame();
     }
     // eslint-disable-next-line
   }, [provider]);
@@ -185,7 +185,7 @@ function Body() {
   }, [inputAppUrl]);
 
   useEffect(() => {
-    setEmbedAddress(address);
+    setIFrameAddress(address);
     // eslint-disable-next-line
   }, [address]);
 
@@ -355,16 +355,16 @@ function Body() {
     }
   };
 
-  const initEmbed = async (_inputAppUrl = inputAppUrl) => {
-    setIsEmbedLoading(true);
+  const initIFrame = async (_inputAppUrl = inputAppUrl) => {
+    setIsIFrameLoading(true);
     if (_inputAppUrl === appUrl) {
-      setIsEmbedLoading(false);
+      setIsIFrameLoading(false);
       return;
     }
 
     const { isValid } = await resolveAndValidateAddress();
     if (!isValid) {
-      setIsEmbedLoading(false);
+      setIsIFrameLoading(false);
       return;
     }
 
@@ -569,7 +569,7 @@ function Body() {
     if (selectedTabIndex === 0) {
       setLoading(true);
     } else {
-      setIsEmbedLoading(true);
+      setIsIFrameLoading(true);
     }
     const { isValid, _address } = await resolveAndValidateAddress();
 
@@ -579,9 +579,9 @@ function Body() {
           newAddress: _address,
         });
       } else {
-        setEmbedAddress(_address);
+        setIFrameAddress(_address);
         setIframeKey((key) => key + 1);
-        setIsEmbedLoading(false);
+        setIsIFrameLoading(false);
       }
     }
   };
@@ -645,7 +645,7 @@ function Body() {
           selectedTabIndex={selectedTabIndex}
           isConnected={isConnected}
           appUrl={appUrl}
-          isEmbedLoading={isEmbedLoading}
+          isIFrameLoading={isIFrameLoading}
           updateAddress={updateAddress}
         />
         <NetworkInput
@@ -676,16 +676,16 @@ function Body() {
               );
             case 1:
               return (
-                <EmbedConnectTab
+                <IFrameConnectTab
                   networkId={networkId}
-                  initEmbed={initEmbed}
+                  initIFrame={initIFrame}
                   setInputAppUrl={setInputAppUrl}
                   inputAppUrl={inputAppUrl}
-                  isEmbedLoading={isEmbedLoading}
+                  isIFrameLoading={isIFrameLoading}
                   appUrl={appUrl}
-                  embedKey={embedKey}
-                  embedRef={embedRef}
-                  setIsEmbedLoading={setIsEmbedLoading}
+                  iframeKey={iframeKey}
+                  iframeRef={iframeRef}
+                  setIsIFrameLoading={setIsIFrameLoading}
                   showAddress={showAddress}
                 />
               );

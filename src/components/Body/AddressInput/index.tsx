@@ -22,7 +22,7 @@ interface AddressInputParams {
   selectedTabIndex: number;
   isConnected: boolean;
   appUrl: string | undefined;
-  isEmbedLoading: boolean;
+  isIFrameLoading: boolean;
   updateAddress: () => void;
 }
 
@@ -35,7 +35,7 @@ function AddressInput({
   selectedTabIndex,
   isConnected,
   appUrl,
-  isEmbedLoading,
+  isIFrameLoading,
   updateAddress,
 }: AddressInputParams) {
   const {
@@ -63,7 +63,7 @@ function AddressInput({
             isInvalid={!isAddressValid}
           />
           {(selectedTabIndex === 0 && isConnected) ||
-          (selectedTabIndex === 1 && appUrl && !isEmbedLoading) ? (
+          (selectedTabIndex === 1 && appUrl && !isIFrameLoading) ? (
             <InputRightElement width="4.5rem" mr="1rem">
               <Button h="1.75rem" size="sm" onClick={updateAddress}>
                 Update

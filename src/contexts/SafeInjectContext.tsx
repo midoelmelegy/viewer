@@ -28,24 +28,24 @@ type SafeInjectContextType = {
   address: string | undefined;
   appUrl: string | undefined;
   rpcUrl: string | undefined;
-  embedRef: React.RefObject<HTMLEmbedElement> | null;
+  iframeRef: React.RefObject<HTMLIFrameElement> | null;
   latestTransaction: TransactionWithId | undefined;
   setAddress: React.Dispatch<React.SetStateAction<string | undefined>>;
   setAppUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
   setRpcUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
-  sendMessageToEmbed: Function;
+  sendMessageToIFrame: Function;
 };
 
 export const SafeInjectContext = createContext<SafeInjectContextType>({
   address: undefined,
   appUrl: undefined,
   rpcUrl: undefined,
-  embedRef: null,
+  iframeRef: null,
   latestTransaction: undefined,
   setAddress: () => {},
   setAppUrl: () => {},
   setRpcUrl: () => {},
-  sendMessageToEmbed: () => {},
+  sendMessageToIFrame: () => {},
 });
 
 export interface FCProps {
@@ -62,10 +62,10 @@ export const SafeInjectProvider: React.FunctionComponent<FCProps> = ({
   const [latestTransaction, setLatestTransaction] =
     useState<TransactionWithId>();
 
-  const embedRef = useRef<HTMLEmbedElement>(null);
-  const communicator = useAppCommunicator(embedRef);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const communicator = useAppCommunicator(iframeRef);
 
-  const sendMessageToEmbed = useCallback(
+  const sendMessageToIFrame = useCallback(
     function <T extends InterfaceMessageIds>(
       message: InterfaceMessageProps<T>,
       requestId?: RequestId
@@ -76,14 +76,14 @@ export const SafeInjectProvider: React.FunctionComponent<FCProps> = ({
         version: "0.4.2",
       };
 
-      if (embedRef) {
-        embedRef.current?.contentWindow?.postMessage(
+      if (iframeRef) {
+        iframeRef.current?.contentWindow?.postMessage(
           requestWithMessage,
           appUrl!
         );
       }
     },
-    [embedRef, appUrl]
+    [iframeRef, appUrl]
   );
 
   useEffect(() => {
@@ -155,12 +155,12 @@ export const SafeInjectProvider: React.FunctionComponent<FCProps> = ({
         address,
         appUrl,
         rpcUrl,
-        embedRef,
+        iframeRef,
         latestTransaction,
         setAddress,
         setAppUrl,
         setRpcUrl,
-        sendMessageToEmbed,
+        sendMessageToIFrame,
       }}
     >
       {children}

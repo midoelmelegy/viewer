@@ -2,14 +2,14 @@ import { GridItem, Center, Image, Text } from "@chakra-ui/react";
 import { SafeDappInfo } from "../../../../types";
 
 interface DappTileParams {
-  initEmbed: (_inputAppUrl?: string | undefined) => Promise<void>;
+  initIFrame: (_inputAppUrl?: string | undefined) => Promise<void>;
   setInputAppUrl: (value: string | undefined) => void;
   closeSafeApps: () => void;
   dapp: SafeDappInfo;
 }
 
 function DappTile({
-  initEmbed,
+  initIFrame,
   setInputAppUrl,
   closeSafeApps,
   dapp,
@@ -27,7 +27,7 @@ function DappTile({
       }}
       rounded="lg"
       onClick={() => {
-        initEmbed(dapp.url);
+        initIFrame(dapp.url);
         setInputAppUrl(dapp.url);
         closeSafeApps();
       }}
