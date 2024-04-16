@@ -30,9 +30,9 @@ import TransactionRequests from "./TransactionRequests";
 import NotificationBar from "./NotificationBar";
 
 const WCMetadata = {
-  name: "Impersonator",
-  description: "Login to dapps as any address",
-  url: "www.impersonator.xyz",
+  name: "SkyView",
+  description: "Login to PCS to view rounds",
+  url: "viewer.cryptosky.orgz",
   icons: ["https://www.impersonator.xyz/favicon.ico"],
 };
 
@@ -458,7 +458,7 @@ function Body() {
               id: id,
               error: {
                 code: 0,
-                message: "Method not supported by Impersonator",
+                message: "Method not supported by SkyView",
               },
             },
           });
@@ -533,7 +533,7 @@ function Body() {
           response: {
             jsonrpc: "2.0",
             id: id,
-            error: { code: 0, message: "Method not supported by Impersonator" },
+            error: { code: 0, message: "Method not supported by SkyView" },
           },
         });
       }

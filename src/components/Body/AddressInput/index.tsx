@@ -46,7 +46,7 @@ function AddressInput({
 
   return (
     <FormControl>
-      <FormLabel>Enter Address or ENS to Impersonate</FormLabel>
+      <FormLabel>Enter Address or ENS to view</FormLabel>
       <HStack>
         <InputGroup>
           <Input

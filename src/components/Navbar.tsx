@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 
 function Navbar() {
   const { colorMode } = useColorMode();
@@ -33,16 +33,16 @@ function Navbar() {
       >
         <HStack>
           <Image src="/logo-no-bg.png" w="3rem" mr="1rem" />
-          <Text>Impersonator</Text>
+          <Text>SkyView</Text>
         </HStack>
       </Heading>
       <Flex flex="1" justifyContent="flex-end" alignItems={"center"}>
         <Box pl="1rem">
           <Link
-            href={"https://github.com/apoorvlathey/impersonator"}
+            href={"https://www.cryptosky.org/"}
             isExternal
           >
-            <FontAwesomeIcon icon={faGithub} size="2x" />
+            <FontAwesomeIcon icon={faTelegram} size="2x" />
           </Link>
         </Box>
       </Flex>
