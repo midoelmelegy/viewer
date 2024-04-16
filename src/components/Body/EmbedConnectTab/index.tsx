@@ -18,31 +18,31 @@ import SupportedDapps from "./SupportedDapps";
 import AppUrlLabel from "./AppUrlLabel";
 import ShareModal from "./ShareModal";
 
-interface IFrameConnectTabParams {
+interface EmbedConnectTabParams {
   networkId: number;
-  initIFrame: (_inputAppUrl?: string | undefined) => Promise<void>;
+  initEmbed: (_inputAppUrl?: string | undefined) => Promise<void>;
   inputAppUrl: string | undefined;
   setInputAppUrl: (value: string | undefined) => void;
   appUrl: string | undefined;
-  isIFrameLoading: boolean;
-  setIsIFrameLoading: (value: boolean) => void;
-  iframeKey: number;
-  iframeRef: React.RefObject<HTMLIFrameElement> | null;
+  isEmbedLoading: boolean;
+  setIsEmbedLoading: (value: boolean) => void;
+  embedKey: number;
+  embedRef: React.RefObject<HTMLEmbedElement> | null;
   showAddress: string;
 }
 
-function IFrameConnectTab({
+function EmbedConnectTab({
   networkId,
-  initIFrame,
+  initEmbed,
   setInputAppUrl,
   inputAppUrl,
-  isIFrameLoading,
+  isEmbedLoading,
   appUrl,
-  iframeKey,
-  iframeRef,
-  setIsIFrameLoading,
+  embedKey,
+  embedRef,
+  setIsEmbedLoading,
   showAddress,
-}: IFrameConnectTabParams) {
+}: EmbedConnectTabParams) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -53,7 +53,7 @@ function IFrameConnectTab({
           <Spacer />
           <SupportedDapps
             networkId={networkId}
-            initIFrame={initIFrame}
+            initEmbed={initEmbed}
             setInputAppUrl={setInputAppUrl}
           />
         </HStack>
@@ -101,7 +101,7 @@ function IFrameConnectTab({
         </HStack>
       </FormControl>
       <Center>
-        <Button onClick={() => initIFrame()} isLoading={isIFrameLoading}>
+        <Button onClick={() => initEmbed()} isLoading={isEmbedLoading}>
           Connect
         </Button>
       </Center>
@@ -113,7 +113,7 @@ function IFrameConnectTab({
       >
         {appUrl && (
           <Box
-            as="iframe"
+            as="embed"
             w={{
               base: "22rem",
               sm: "45rem",
@@ -123,13 +123,13 @@ function IFrameConnectTab({
             h={{ base: "33rem", md: "35rem", lg: "38rem" }}
             title="app"
             src={appUrl}
-            key={iframeKey}
+            key={embedKey}
             borderWidth="1px"
             borderStyle={"solid"}
             borderColor="white"
             bg="white"
-            ref={iframeRef}
-            onLoad={() => setIsIFrameLoading(false)}
+            ref={embedRef}
+            onLoad={() => setIsEmbedLoading(false)}
           />
         )}
       </Center>
@@ -137,4 +137,4 @@ function IFrameConnectTab({
   );
 }
 
-export default IFrameConnectTab;
+export default EmbedConnectTab;

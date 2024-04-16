@@ -24,11 +24,11 @@ export enum LegacyMethods {
 type SDKMethods = Methods | LegacyMethods;
 
 class AppCommunicator {
-  private iframeRef: MutableRefObject<HTMLIFrameElement | null>;
+  private embedRef: MutableRefObject<HTMLEmbedElement | null>;
   private handlers = new Map<SDKMethods, MessageHandler>();
 
-  constructor(iframeRef: MutableRefObject<HTMLIFrameElement | null>) {
-    this.iframeRef = iframeRef;
+  constructor(embedRef: MutableRefObject<HTMLEmbedElement | null>) {
+    this.embedRef = embedRef;
 
     window.addEventListener("message", this.handleIncomingMessage);
   }
@@ -42,7 +42,7 @@ class AppCommunicator {
       return true;
     }
 
-    const sentFromIframe = this.iframeRef.current?.contentWindow === msg.source;
+    const sentFromIframe = this.embedRef.current?.contentWindow === msg.source;
     const knownMethod = Object.values(Methods).includes(msg.data.method);
 
     return sentFromIframe && knownMethod;
@@ -62,7 +62,7 @@ class AppCommunicator {
         )
       : MessageFormatter.makeResponse(requestId, data, sdkVersion);
     // console.log("send", { msg });
-    this.iframeRef.current?.contentWindow?.postMessage(msg, "*");
+    this.embedRef.current?.contentWindow?.postMessage(msg, "*");
   };
 
   handleIncomingMessage = async (msg: SDKMessageEvent): Promise<void> => {
@@ -93,7 +93,7 @@ class AppCommunicator {
 }
 
 const useAppCommunicator = (
-  iframeRef: MutableRefObject<HTMLIFrameElement | null>
+  embedRef: MutableRefObject<HTMLEmbedElement | null>
 ): AppCommunicator | undefined => {
   const [communicator, setCommunicator] = useState<AppCommunicator | undefined>(
     undefined
@@ -101,18 +101,18 @@ const useAppCommunicator = (
   useEffect(() => {
     let communicatorInstance: AppCommunicator;
     const initCommunicator = (
-      iframeRef: MutableRefObject<HTMLIFrameElement>
+      embedRef: MutableRefObject<HTMLEmbedElement>
     ) => {
-      communicatorInstance = new AppCommunicator(iframeRef);
+      communicatorInstance = new AppCommunicator(embedRef);
       setCommunicator(communicatorInstance);
     };
 
-    initCommunicator(iframeRef as MutableRefObject<HTMLIFrameElement>);
+    initCommunicator(embedRef as MutableRefObject<HTMLEmbedElement>);
 
     return () => {
       communicatorInstance?.clear();
     };
-  }, [iframeRef]);
+  }, [embedRef]);
 
   return communicator;
 };

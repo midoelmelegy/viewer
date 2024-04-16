@@ -1,7 +1,7 @@
 import { Center, HStack } from "@chakra-ui/react";
 import Tab from "./Tab";
 
-const tabs = ["WalletConnect", "iFrame", "Extension"];
+const tabs = ["WalletConnect", "View", "Help"];
 
 interface TabsSelectParams {
   selectedTabIndex: number;
