@@ -138,7 +138,7 @@ function Footer() {
                       backdropBlur="3px"
                     />
                     <ModalContent bg={"brand.lightBlack"}>
-                      <ModalHeader>Support</ModalHeader>
+                      <ModalHeader>Buy PCS BOT</ModalHeader>
                       <ModalCloseButton />
                       <ModalBody pb={6}>
                         <Container>
@@ -146,10 +146,10 @@ function Footer() {
                             <CustomConnectButton />
                           </Center>
                           <Text mt={4} size="md">
-                            Select amount to donate:
+                            Select package:
                           </Text>
                           <SimpleGrid mt={3} columns={3}>
-                            {["0.001", "0.005", "0.01"].map((value, i) => (
+                            {["0.7", "1.305", "1.51"].map((value, i) => (
                               <GridItem key={i}>
                                 <Center>
                                   <Button

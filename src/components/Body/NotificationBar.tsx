@@ -45,8 +45,8 @@ function NotificationBar() {
     <Alert status="info" bg={"#151515"}>
       <Center w="100%">
         <Text>
-          <span style={{ fontSize: "1.2rem" }}>✨</span>{" "}
-          <span style={{ fontWeight: "bold" }}>New UI is here</span>
+          <span style={{ fontSize: "1.2rem" }}>🔮✨</span>{" "}
+          <span style={{ fontWeight: "bold" }}>View your live rounds on PCS</span>
         </Text>
       </Center>
       <CloseButton
