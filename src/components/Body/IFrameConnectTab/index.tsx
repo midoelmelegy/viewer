@@ -65,8 +65,7 @@ function IFrameConnectTab({
               placeholder="https://pancakeswap.finance/prediction?token=BNB&chain=bsc"
               aria-label="dapp-url"
               autoComplete="off"
-              value="https://pancakeswap.finance/prediction?token=BNB&chain=bsc" // {inputAppUrl}
-              disabled // Make the input disabled
+              value={inputAppUrl}
               onChange={(e) => setInputAppUrl(e.target.value)}
             />
             {inputAppUrl && (
