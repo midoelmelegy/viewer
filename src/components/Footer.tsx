@@ -100,7 +100,7 @@ function Footer() {
           rounded="lg"
         >
           <Stack direction={{ base: "column", md: "row" }}>
-            <Center>Found the project helpful?</Center>
+            <Center>Want to own the BOT?</Center>
             <HStack>
               {process.env.REACT_APP_GITCOIN_GRANTS_ACTIVE === "true" ? (
                 <>
@@ -125,7 +125,7 @@ function Footer() {
                     }}
                     bg={"blackAlpha.500"}
                   >
-                    Support!
+                    Buy Now!
                   </Button>
                   <Modal
                     isOpen={isSupportModalOpen}
