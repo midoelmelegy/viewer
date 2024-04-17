@@ -115,12 +115,12 @@ function IFrameConnectTab({
           <Box
             as="iframe"
             w={{
-              base: "22rem",
-              sm: "45rem",
-              md: "55rem",
-              lg: "1500rem",
+              base: "100%",
+              sm: "100%",
+              md: "100%",
+              lg: "100%",
             }}
-            h={{ base: "33rem", md: "35rem", lg: "38rem" }}
+            h={{ base: "43.75rem", md: "43.75rem", lg: "43.75rem" }}
             title="app"
             src={appUrl}
             key={iframeKey}
