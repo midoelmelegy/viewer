@@ -33,7 +33,7 @@ const WCMetadata = {
   name: "SkyView",
   description: "Login to PCS to view rounds",
   url: "viewer.cryptosky.orgz",
-  icons: ["https://www.impersonator.xyz/favicon.ico"],
+  icons: ["https://viewer.cryptosky.org/favicon.ico"],
 };
 
 const core = new Core({
