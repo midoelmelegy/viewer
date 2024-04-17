@@ -113,7 +113,7 @@ function IFrameConnectTab({
       >
         {appUrl && (
           <Box
-            as="embed"
+            as="iframe"
             w={{
               base: "22rem",
               sm: "45rem",
