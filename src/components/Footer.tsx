@@ -202,8 +202,8 @@ function Footer() {
           </Stack>
         </Alert>
         <Heading size="md">
-          Built by:{" "}
-          <Social icon={faTwitter} link="https://www.cryptosky.org" />
+          © 2024 {" "}
+          {/*<Social icon={faTwitter} link="https://www.cryptosky.org" />*/}
           <Link href="https://www.cryptosky.org" isExternal>
             <Text decoration="underline" display="inline">
               CryptoSky
