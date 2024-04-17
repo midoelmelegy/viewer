@@ -116,8 +116,6 @@ function IFrameConnectTab({
             as="iframe"
             w={{
               base: "100%",
-              sm: "100%",
-              md: "100%",
               lg: "100%",
             }}
             h={{ base: "43.75rem", md: "43.75rem", lg: "43.75rem" }}
