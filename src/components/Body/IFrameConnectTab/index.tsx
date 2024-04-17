@@ -121,6 +121,7 @@ function IFrameConnectTab({
             key={iframeKey}
             borderWidth="1px"
             borderStyle={"solid"}
+            borderRadius="xl"
             borderColor="white"
             bg="white"
             ref={iframeRef}
