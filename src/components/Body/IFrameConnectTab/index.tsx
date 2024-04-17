@@ -107,9 +107,6 @@ function IFrameConnectTab({
       </Center>
       <Center
         mt="1rem"
-        {/*ml={{ base: "-385", sm: "-315", md: "-240", lg: "-60" }}
-        px={{ base: "10rem", lg: 0 }}
-        w="70rem"*/}
       >
         {appUrl && (
           <Box
